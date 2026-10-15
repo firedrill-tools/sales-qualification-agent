@@ -1217,8 +1217,12 @@ source = { editable = "." }
 dependencies = [
     { name = "composio" },
     { name = "composio-langchain" },
+    { name = "httpx" },
+    { name = "httpx2" },
     { name = "langchain" },
     { name = "langchain-openai" },
+    { name = "openai" },
+    { name = "pydantic" },
 ]
 
 [package.dev-dependencies]
@@ -1230,8 +1234,12 @@ dev = [
 requires-dist = [
     { name = "composio", specifier = "==0.27.0" },
     { name = "composio-langchain", specifier = "==0.27.0" },
+    { name = "httpx", specifier = "==0.28.1" },
+    { name = "httpx2", specifier = "==2.13.1" },
     { name = "langchain", specifier = "==1.4.6" },
     { name = "langchain-openai", specifier = "==1.7.2" },
+    { name = "openai", specifier = "==3.31.0" },
+    { name = "pydantic", specifier = ">=2.11,<3" },
 ]
 
 [package.metadata.requires-dev]

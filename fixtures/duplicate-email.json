@@ -1,0 +1,95 @@
+{
+  "synthetic": true,
+  "schema_version": 1,
+  "people": [
+    {
+      "id": "p-101",
+      "name": "Mira Chen",
+      "email": "mira@harbor.example",
+      "company_id": "c-1",
+      "role": "Operations Director",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-102",
+      "name": "Mira Chen",
+      "email": "mira@harbour.example",
+      "company_id": "c-2",
+      "role": "Consultant",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-103",
+      "name": "Leo Hart",
+      "email": "leo@northstar.example",
+      "company_id": "c-3",
+      "role": "Finance Analyst",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-104",
+      "name": "Mira Chen",
+      "email": "mira@harbor.example",
+      "company_id": "c-2",
+      "role": "External adviser",
+      "status": "new",
+      "notes": []
+    }
+  ],
+  "companies": [
+    {
+      "id": "c-1",
+      "name": "Harbor Logistics",
+      "size": 120,
+      "industry": "logistics",
+      "need": "Automate exception routing",
+      "budget": "approved"
+    },
+    {
+      "id": "c-2",
+      "name": "Harbour Studio",
+      "size": 9,
+      "industry": "design",
+      "need": "No active project",
+      "budget": "unknown"
+    },
+    {
+      "id": "c-3",
+      "name": "Northstar Labs",
+      "size": 48,
+      "industry": "software",
+      "need": "Invoice reconciliation",
+      "budget": "pending"
+    }
+  ],
+  "email": [
+    {
+      "id": "e-1",
+      "from": "mira@harbor.example",
+      "subject": "Workflow review",
+      "body": "We have an approved budget and need exception routing before November. Can we meet next week?"
+    },
+    {
+      "id": "e-2",
+      "from": "leo@northstar.example",
+      "subject": "Initial inquiry",
+      "body": "Could you send pricing? We have not confirmed a budget or schedule."
+    }
+  ],
+  "calendar_slots": [
+    "2026-10-20T14:00:00Z",
+    "2026-10-21T16:00:00Z"
+  ],
+  "outreach": [],
+  "meetings": [],
+  "denied_company_ids": [],
+  "dataset": {
+    "dataset_id": "northstar-sales",
+    "version": "1.0.0",
+    "profile": "ambiguous",
+    "case_id": "duplicate-email"
+  }
+}

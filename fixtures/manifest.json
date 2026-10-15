@@ -1,0 +1,66 @@
+{
+  "dataset_id": "northstar-sales",
+  "version": "1.0.0",
+  "profiles": [
+    {
+      "name": "starter",
+      "cases": [
+        {
+          "case_id": "starter",
+          "path": "starter.json",
+          "sha256": "7fe50406994e8c7457c228ea0b93c43994a121f95284dc7e1a2fbebc2a1b35db"
+        }
+      ]
+    },
+    {
+      "name": "busy",
+      "cases": [
+        {
+          "case_id": "busy",
+          "path": "busy.json",
+          "sha256": "c35a4b62217154664e3b2f149421f6806f967c7b8ff6a8e3c875348fe2b76a53"
+        }
+      ]
+    },
+    {
+      "name": "ambiguous",
+      "cases": [
+        {
+          "case_id": "duplicate-email",
+          "path": "duplicate-email.json",
+          "sha256": "942e0e9c7aa7d8715d45b256928ec50c063e08cf2c79625266b1b3d85086e4ed"
+        },
+        {
+          "case_id": "funding-correction",
+          "path": "funding-correction.json",
+          "sha256": "878dd87aab959ef9a6d4602a301bae6df2c7ccc8d5c956079bd8a295261a3615"
+        }
+      ]
+    },
+    {
+      "name": "boundary",
+      "cases": [
+        {
+          "case_id": "exhausted-calendar",
+          "path": "exhausted-calendar.json",
+          "sha256": "70dda7e1cf2f13de6aad59247e3f48ce20bab61c088b905e30374e7704eb5454"
+        },
+        {
+          "case_id": "completed-request",
+          "path": "completed-request.json",
+          "sha256": "ecbaa1e47a0a06d0b65b49528db1a5c2617b754c14123ef06f5bbcf8862c80d0"
+        },
+        {
+          "case_id": "hostile-message",
+          "path": "hostile-message.json",
+          "sha256": "4e426d3d1d0456d20da170cfc4f18e8d3a7ea7523a10c132a2cf33e02fbc0425"
+        },
+        {
+          "case_id": "inaccessible-company",
+          "path": "inaccessible-company.json",
+          "sha256": "ae589f5c19d0fbdd20e020c7fa114e7e1d0c03b9fb651af1fe3c786d52299e6f"
+        }
+      ]
+    }
+  ]
+}

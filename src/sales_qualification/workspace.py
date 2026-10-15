@@ -1,8 +1,24 @@
 """Local, intentionally narrow replacement for CRM, email and calendar actions."""
 import json
 import os
+from hashlib import sha256
 from pathlib import Path
 from tempfile import NamedTemporaryFile
+from .models import WorkspaceData
+
+MAX_WORKSPACE_BYTES = 2 * 1024 * 1024
+
+
+def parse_workspace(snapshot: bytes) -> dict:
+    if len(snapshot) > MAX_WORKSPACE_BYTES:
+        raise ValueError("Workspace exceeds 2 MiB")
+    return WorkspaceData.model_validate_json(snapshot).model_dump(mode="json", by_alias=True)
+
+
+def read_workspace(path: Path) -> tuple[bytes, dict]:
+    with path.open("rb") as source:
+        snapshot = source.read(MAX_WORKSPACE_BYTES + 1)
+    return snapshot, parse_workspace(snapshot)
 
 
 class Workspace:
@@ -15,17 +31,30 @@ class Workspace:
     def data(self):
         # Each operation observes the latest committed state. A long-lived
         # adapter must not restore an older in-memory workspace over later work.
-        return json.loads(self.path.read_text())
+        return read_workspace(self.path)[1]
+
+    def snapshot(self):
+        snapshot, state = read_workspace(self.path)
+        return {"state_sha256": sha256(snapshot).hexdigest(), "dataset": state["dataset"],
+                "people_count": len(state["people"]), "meeting_count": len(state["meetings"])}
 
     def people(self, query: str):
         q = query.casefold()
-        return [p for p in self.data["people"] if q in p["name"].casefold() or q in p["email"].casefold()]
+        state = self.data
+        matches = [p for p in state["people"] if q in p["name"].casefold() or q in p["email"].casefold()]
+        return [{"error": "company_inaccessible", "person_id": p["id"]} if p["company_id"] in state["denied_company_ids"] else p for p in matches]
 
     def company(self, company_id: str):
-        return next((c for c in self.data["companies"] if c["id"] == company_id), None)
+        state = self.data
+        if company_id in state["denied_company_ids"]:
+            return {"error": "company_inaccessible"}
+        return next((c for c in state["companies"] if c["id"] == company_id), None)
 
     def messages(self, email: str):
-        return [m for m in self.data["email"] if m["from"].casefold() == email.casefold()]
+        state = self.data
+        if any(p["email"].casefold() == email.casefold() and p["company_id"] in state["denied_company_ids"] for p in state["people"]):
+            return {"error": "company_inaccessible"}
+        return [m for m in state["email"] if m["from"].casefold() == email.casefold()]
 
     def slots(self):
         return self.data["calendar_slots"]
@@ -40,6 +69,8 @@ class Workspace:
         person = next((p for p in state["people"] if p["id"] == person_id), None)
         if person is None:
             return {"error": "unknown_person"}
+        if person["company_id"] in state["denied_company_ids"]:
+            return {"error": "company_inaccessible"}
         person["status"] = status
         if reason not in person["notes"]:
             person["notes"].append(reason)
@@ -55,10 +86,13 @@ class Workspace:
         if previous:
             if previous["person_id"] != person_id or previous["slot"] != slot:
                 return {"error": "request_id_conflict"}
-            return previous
         person = next((p for p in state["people"] if p["id"] == person_id), None)
         if person is None:
             return {"error": "unknown_person"}
+        if person["company_id"] in state["denied_company_ids"]:
+            return {"error": "company_inaccessible"}
+        if previous:
+            return previous
         if slot not in state["calendar_slots"]:
             return {"error": "slot_unavailable"}
         record = {"request_id": request_id, "person_id": person_id, "slot": slot}
@@ -74,6 +108,7 @@ class Workspace:
     def _save(self, state):
         # Individual publications are atomic. Callers still serialize writers;
         # this is not a cross-process read/modify/write transaction or lock.
+        state = parse_workspace(json.dumps(state).encode())
         temporary = None
         try:
             with NamedTemporaryFile(mode="w", dir=self.path.parent, prefix=".sales-workspace-", suffix=".tmp",

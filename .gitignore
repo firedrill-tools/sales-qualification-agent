@@ -5,3 +5,5 @@ dist/
 *.egg-info/
 workspace.json
 .env
+run-output/
+tmp/

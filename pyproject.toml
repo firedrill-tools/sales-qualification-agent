@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A LangChain sales qualification agent with explicit synthetic and Composio tool boundaries"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["langchain==1.4.6", "langchain-openai==1.7.2", "composio==0.27.0", "composio-langchain==0.27.0"]
+dependencies = ["langchain==1.4.6", "langchain-openai==1.7.2", "composio==0.27.0", "composio-langchain==0.27.0", "openai==3.31.0", "httpx==0.28.1", "httpx2==2.13.1", "pydantic>=2.11,<3"]
 
 [project.scripts]
 qualify-lead = "sales_qualification.cli:main"
@@ -18,6 +18,9 @@ dev = ["pytest>=8,<10"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sales_qualification"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"fixtures" = "sales_qualification/sample_data"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

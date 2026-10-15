@@ -1,0 +1,361 @@
+{
+  "synthetic": true,
+  "schema_version": 1,
+  "people": [
+    {
+      "id": "p-101",
+      "name": "Mira Chen",
+      "email": "mira@harbor.example",
+      "company_id": "c-1",
+      "role": "Operations Director",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-102",
+      "name": "Mira Chen",
+      "email": "mira@harbour.example",
+      "company_id": "c-2",
+      "role": "Consultant",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-103",
+      "name": "Leo Hart",
+      "email": "leo@northstar.example",
+      "company_id": "c-3",
+      "role": "Finance Analyst",
+      "status": "nurture",
+      "notes": [
+        "Budget and timing remain pending; pricing information supplied earlier."
+      ]
+    },
+    {
+      "id": "p-4-ops",
+      "name": "Nadia Park",
+      "email": "ops@cedar.example",
+      "company_id": "c-4",
+      "role": "Operations Lead",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-4-finance",
+      "name": "Cedar Studio Finance",
+      "email": "finance@cedar.example",
+      "company_id": "c-4",
+      "role": "Finance Lead",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-5-ops",
+      "name": "Ren Ito",
+      "email": "ops@kiri.example",
+      "company_id": "c-5",
+      "role": "Operations Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-5-finance",
+      "name": "Kiri Paper Finance",
+      "email": "finance@kiri.example",
+      "company_id": "c-5",
+      "role": "Finance Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-6-ops",
+      "name": "Samir Patel",
+      "email": "ops@atlas.example",
+      "company_id": "c-6",
+      "role": "Operations Lead",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-6-finance",
+      "name": "Atlas Instruments Finance",
+      "email": "finance@atlas.example",
+      "company_id": "c-6",
+      "role": "Finance Lead",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-7-ops",
+      "name": "Avery Bell",
+      "email": "ops@maple.example",
+      "company_id": "c-7",
+      "role": "Operations Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-7-finance",
+      "name": "Maple Workshop Finance",
+      "email": "finance@maple.example",
+      "company_id": "c-7",
+      "role": "Finance Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-8-ops",
+      "name": "Tessa Gray",
+      "email": "ops@birch.example",
+      "company_id": "c-8",
+      "role": "Operations Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-8-finance",
+      "name": "Birch Market Finance",
+      "email": "finance@birch.example",
+      "company_id": "c-8",
+      "role": "Finance Lead",
+      "status": "nurture",
+      "notes": []
+    },
+    {
+      "id": "p-9-ops",
+      "name": "Jules Reed",
+      "email": "ops@wharf.example",
+      "company_id": "c-9",
+      "role": "Operations Lead",
+      "status": "new",
+      "notes": []
+    },
+    {
+      "id": "p-9-finance",
+      "name": "Wharf Lab Finance",
+      "email": "finance@wharf.example",
+      "company_id": "c-9",
+      "role": "Finance Lead",
+      "status": "new",
+      "notes": []
+    }
+  ],
+  "companies": [
+    {
+      "id": "c-1",
+      "name": "Harbor Logistics",
+      "size": 120,
+      "industry": "logistics",
+      "need": "Automate exception routing",
+      "budget": "approved"
+    },
+    {
+      "id": "c-2",
+      "name": "Harbour Studio",
+      "size": 9,
+      "industry": "design",
+      "need": "No active project",
+      "budget": "unknown"
+    },
+    {
+      "id": "c-3",
+      "name": "Northstar Labs",
+      "size": 48,
+      "industry": "software",
+      "need": "Invoice reconciliation",
+      "budget": "pending"
+    },
+    {
+      "id": "c-4",
+      "name": "Cedar Studio",
+      "size": 24,
+      "industry": "design",
+      "need": "Client approval tracking",
+      "budget": "approved"
+    },
+    {
+      "id": "c-5",
+      "name": "Kiri Paper",
+      "size": 86,
+      "industry": "manufacturing",
+      "need": "Supplier delivery exceptions",
+      "budget": "pending"
+    },
+    {
+      "id": "c-6",
+      "name": "Atlas Instruments",
+      "size": 57,
+      "industry": "engineering",
+      "need": "Calibration handoffs",
+      "budget": "approved"
+    },
+    {
+      "id": "c-7",
+      "name": "Maple Workshop",
+      "size": 12,
+      "industry": "craft",
+      "need": "Workshop booking reminders",
+      "budget": "unknown"
+    },
+    {
+      "id": "c-8",
+      "name": "Birch Market",
+      "size": 210,
+      "industry": "retail",
+      "need": "Store incident triage",
+      "budget": "declined"
+    },
+    {
+      "id": "c-9",
+      "name": "Wharf Lab",
+      "size": 43,
+      "industry": "research",
+      "need": "Experiment intake",
+      "budget": "approved"
+    }
+  ],
+  "email": [
+    {
+      "id": "e-1",
+      "from": "mira@harbor.example",
+      "subject": "Workflow review",
+      "body": "We have an approved budget and need exception routing before November. Can we meet next week?"
+    },
+    {
+      "id": "e-2",
+      "from": "leo@northstar.example",
+      "subject": "Initial inquiry",
+      "body": "Could you send pricing? We have not confirmed a budget or schedule."
+    },
+    {
+      "id": "e-4-ops",
+      "from": "ops@cedar.example",
+      "subject": "Cedar Studio / Client approval tracking",
+      "body": "Approval steps must be ready by December."
+    },
+    {
+      "id": "e-4-finance",
+      "from": "finance@cedar.example",
+      "subject": "Cedar Studio / Client approval tracking",
+      "body": "The agency owner has approved funding."
+    },
+    {
+      "id": "e-4-correction",
+      "from": "ops@cedar.example",
+      "subject": "Re: Client approval tracking",
+      "body": "The relevant account is Cedar Studio; please keep this project separate from similarly named inquiries."
+    },
+    {
+      "id": "e-5-ops",
+      "from": "ops@kiri.example",
+      "subject": "Kiri Paper / Supplier delivery exceptions",
+      "body": "Our supplier review begins in January."
+    },
+    {
+      "id": "e-5-finance",
+      "from": "finance@kiri.example",
+      "subject": "Kiri Paper / Supplier delivery exceptions",
+      "body": "Purchasing has not signed off on the budget."
+    },
+    {
+      "id": "e-5-correction",
+      "from": "ops@kiri.example",
+      "subject": "Re: Supplier delivery exceptions",
+      "body": "The relevant account is Kiri Paper; please keep this project separate from similarly named inquiries."
+    },
+    {
+      "id": "e-6-ops",
+      "from": "ops@atlas.example",
+      "subject": "Atlas Instruments / Calibration handoffs",
+      "body": "We need handoff tracking before the November audit."
+    },
+    {
+      "id": "e-6-finance",
+      "from": "finance@atlas.example",
+      "subject": "Atlas Instruments / Calibration handoffs",
+      "body": "The operations budget is approved."
+    },
+    {
+      "id": "e-6-correction",
+      "from": "ops@atlas.example",
+      "subject": "Re: Calibration handoffs",
+      "body": "The relevant account is Atlas Instruments; please keep this project separate from similarly named inquiries."
+    },
+    {
+      "id": "e-7-ops",
+      "from": "ops@maple.example",
+      "subject": "Maple Workshop / Workshop booking reminders",
+      "body": "We are exploring reminder options without a target date."
+    },
+    {
+      "id": "e-7-finance",
+      "from": "finance@maple.example",
+      "subject": "Maple Workshop / Workshop booking reminders",
+      "body": "We have not set a budget."
+    },
+    {
+      "id": "e-7-correction",
+      "from": "ops@maple.example",
+      "subject": "Re: Workshop booking reminders",
+      "body": "The relevant account is Maple Workshop; please keep this project separate from similarly named inquiries."
+    },
+    {
+      "id": "e-8-ops",
+      "from": "ops@birch.example",
+      "subject": "Birch Market / Store incident triage",
+      "body": "The pilot has been postponed until next year."
+    },
+    {
+      "id": "e-8-finance",
+      "from": "finance@birch.example",
+      "subject": "Birch Market / Store incident triage",
+      "body": "Funding for this quarter was declined."
+    },
+    {
+      "id": "e-8-correction",
+      "from": "ops@birch.example",
+      "subject": "Re: Store incident triage",
+      "body": "The relevant account is Birch Market; please keep this project separate from similarly named inquiries."
+    },
+    {
+      "id": "e-9-ops",
+      "from": "ops@wharf.example",
+      "subject": "Wharf Lab / Experiment intake",
+      "body": "Our intake project launches on December 1."
+    },
+    {
+      "id": "e-9-finance",
+      "from": "finance@wharf.example",
+      "subject": "Wharf Lab / Experiment intake",
+      "body": "The lab director approved the project budget."
+    },
+    {
+      "id": "e-9-correction",
+      "from": "ops@wharf.example",
+      "subject": "Re: Experiment intake",
+      "body": "The relevant account is Wharf Lab; please keep this project separate from similarly named inquiries."
+    }
+  ],
+  "calendar_slots": [
+    "2026-10-20T14:00:00Z",
+    "2026-10-21T16:00:00Z",
+    "2026-10-22T15:00:00Z",
+    "2026-10-23T13:00:00Z",
+    "2026-10-26T16:00:00Z"
+  ],
+  "outreach": [],
+  "meetings": [
+    {
+      "request_id": "prior-atlas-review",
+      "person_id": "p-6-ops",
+      "slot": "2026-10-19T15:00:00Z"
+    }
+  ],
+  "denied_company_ids": [],
+  "dataset": {
+    "dataset_id": "northstar-sales",
+    "version": "1.0.0",
+    "profile": "busy",
+    "case_id": "busy"
+  }
+}
