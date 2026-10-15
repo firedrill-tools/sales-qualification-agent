@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sales-qualification-agent"
+version = "0.1.0"
+description = "A LangChain sales qualification agent with explicit synthetic and Composio tool boundaries"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["langchain==1.4.6", "langchain-openai==1.7.2", "composio==0.27.0", "composio-langchain==0.27.0"]
+
+[project.scripts]
+qualify-lead = "sales_qualification.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sales_qualification"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
