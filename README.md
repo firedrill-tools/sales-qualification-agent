@@ -14,7 +14,7 @@ OPENAI_API_KEY=... uv run qualify-lead --workspace workspace.json --allow-write 
 uv run pytest
 ```
 
-Without `--allow-write`, local tools reject mutations. Copy the starter fixture again to reset state. Use one process at a time for a workspace file; the JSON store does not provide concurrent transactions. The model response is printed; inspect `workspace.json` for committed changes. If a key is missing the command exits before a model call.
+Without `--allow-write`, local tools reject mutations. Copy the starter fixture again to reset state. Each operation reloads the latest committed state, and individual writes replace the file atomically. Use one writer at a time for a workspace file; this does not provide a concurrent read/modify/write transaction or lock. The model response is printed; inspect `workspace.json` for committed changes. If a key is missing the command exits before a model call.
 
 ## Composio connector path
 
@@ -30,7 +30,7 @@ The Composio mode has no synthetic fallback. Hosted actions may change remote da
 
 ## Evidence and limits
 
-`scenarios/README.md` lists a routine case, duplicate identities, incomplete budget, retries and denied writes. Offline tests verify local record identity, idempotency and boundaries. No live model or Composio execution has been performed because the needed keys and connected test accounts are not available here. Model quality, tool choice, usage and hosted connector behavior remain unmeasured.
+`scenarios/README.md` lists a routine case, duplicate identities, incomplete budget, retries and denied writes. The 11 offline checks verify local record identity, exact meeting replay/conflict semantics, reads from a long-lived adapter after later commits, preservation of unrelated changes, read-only boundaries and atomic-publication failure recovery. A reused meeting ID with a different person or slot is rejected without returning another person's booking. Blank evidence reasons or request IDs are rejected. These checks do not exercise the actual LangChain/OpenAI model adapter; its completion/evidence path and four-profile versioned datasets remain follow-up development work. No live model or Composio execution has been performed because the needed keys and connected test accounts are not available here. Model quality, tool choice, usage and hosted connector behavior remain unmeasured.
 
 No license has been selected for public publication.
 
