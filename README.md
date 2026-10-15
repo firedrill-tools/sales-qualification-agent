@@ -33,3 +33,5 @@ The Composio mode has no synthetic fallback. Hosted actions may change remote da
 `scenarios/README.md` lists a routine case, duplicate identities, incomplete budget, retries and denied writes. Offline tests verify local record identity, idempotency and boundaries. No live model or Composio execution has been performed because the needed keys and connected test accounts are not available here. Model quality, tool choice, usage and hosted connector behavior remain unmeasured.
 
 No license has been selected for public publication.
+
+Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
