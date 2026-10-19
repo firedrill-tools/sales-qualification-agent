@@ -87,3 +87,7 @@ The intended seam is this one-task CLI plus explicit dependency configuration an
 Implementation references: [ChatOpenAI](https://docs.langchain.com/oss/python/integrations/chat/openai), [OpenAI function calling](https://developers.openai.com/api/docs/guides/function-calling), [Composio LangChain provider](https://docs.composio.dev/docs/providers/langchain) and [session configuration](https://docs.composio.dev/docs/configuring-sessions).
 
 Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release.
+
+## Current Firedrill connection — 2026-10-19
+
+The [agent-first integration](firedrill/README.md) exact-pins CLI/SDK 2.2.2 and calls the actual LangChain sales CLI in explicit synthetic mode. Caller write permission stays independent of task/case selection; each invocation gets private state. The separate hosted Composio path remains available in the application and requires its existing live-account gates. Earlier pending-release notes are historical; authenticated persisted and live proofs remain pending.

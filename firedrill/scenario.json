@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "2026-10-14",
+  "name": "Sales qualification \u2014 actual LangChain/OpenAI application",
+  "target": {
+    "kind": "command",
+    "argv": [
+      "node",
+      "firedrill/target.mjs"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "starter-read",
+      "name": "Research an exact synthetic lead",
+      "input": {
+        "caseId": "starter",
+        "task": "Research mira@harbor.example from her company and inbound message. Report qualification evidence without changing records or booking.",
+        "allowWrites": false
+      }
+    },
+    {
+      "id": "starter-update",
+      "name": "Explicit synthetic qualification and follow-up grant",
+      "input": {
+        "caseId": "starter",
+        "task": "Qualify mira@harbor.example from her message, and book one available slot if justified. Preserve unrelated people and meetings.",
+        "allowWrites": true
+      }
+    },
+    {
+      "id": "duplicate-email",
+      "name": "Conflicting lead identities",
+      "input": {
+        "caseId": "duplicate-email",
+        "task": "Investigate mira@harbor.example and report any conflicting account identity. Do not change records or book a meeting.",
+        "allowWrites": false
+      }
+    }
+  ],
+  "repetitions": 1,
+  "concurrency": 1,
+  "limits": {
+    "timeoutMs": 300000,
+    "maxRuns": 3,
+    "maxOutputBytes": 4194304
+  }
+}

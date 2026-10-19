@@ -7,3 +7,7 @@ workspace.json
 .env
 run-output/
 tmp/
+
+node_modules/
+
+.runs/
