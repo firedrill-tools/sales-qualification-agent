@@ -2,6 +2,20 @@
 
 A LangChain/OpenAI agent researches one lead across CRM people/companies, inbound email and calendar availability, then updates qualification or arranges follow-up when requested. The default tools operate on a fictional local workspace. A separate path uses actual Composio provider-wrapped tools and native session HTTP calls for explicitly connected test accounts. It does not intercept hosted MCP or simulate Composio's backend.
 
+## Simulate with Firedrill
+
+[Firedrill](https://firedrill.run/) is a simulation platform for AI agents.
+Start from this repository’s root:
+
+```sh
+npx firedrill-run init
+```
+
+Sign in and choose your project, then follow the [simulation run guide](firedrill/README.md)
+for application dependencies, a preview and the reviewed scenarios. Your agent runs
+locally or in your CI; model credentials stay separate from Firedrill sign-in.
+The included recipes record outcomes without an automatic quality score or CI gate.
+
 ## Run one local task
 
 Requires Python 3.12 and [uv](https://docs.astral.sh/uv/). Listing and initialization require no provider key:
@@ -82,7 +96,7 @@ The 59 checks retain the actual LangChain graph, ChatOpenAI/OpenAI adapters and 
 
 ## Firedrill and publication
 
-The intended seam is this one-task CLI plus explicit dependency configuration and observed state. The synthetic tool adapter can later use a supported released service through a thin connection. A new Firedrill integration, persisted run/report and CI recipe await a verified release; none is invented here. Live OpenAI/Composio proof, public visibility and licensing remain pending.
+The intended seam is this one-task CLI plus explicit dependency configuration and observed state. The synthetic tool adapter can later use a supported released service through a thin connection. The included [Firedrill integration](firedrill/README.md) uses the real CLI with local synthetic data. Authenticated persisted reports and live CI remain unverified. Live OpenAI/Composio proof, public visibility and licensing remain pending.
 
 Implementation references: [ChatOpenAI](https://docs.langchain.com/oss/python/integrations/chat/openai), [OpenAI function calling](https://developers.openai.com/api/docs/guides/function-calling), [Composio LangChain provider](https://docs.composio.dev/docs/providers/langchain) and [session configuration](https://docs.composio.dev/docs/configuring-sessions).
 
