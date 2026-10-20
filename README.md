@@ -102,7 +102,7 @@ The intended seam is this one-task CLI plus explicit dependency configuration an
 
 Implementation references: [ChatOpenAI](https://docs.langchain.com/oss/python/integrations/chat/openai), [OpenAI function calling](https://developers.openai.com/api/docs/guides/function-calling), [Composio LangChain provider](https://docs.composio.dev/docs/providers/langchain) and [session configuration](https://docs.composio.dev/docs/configuring-sessions).
 
-Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release.
+Explore related applications in the [Firedrill examples](https://docs.firedrill.run/guides/examples). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release.
 
 ## Current Firedrill connection — 2026-10-19
 
